@@ -1,0 +1,7 @@
+diffusers
+einops
+omegaconf
+trimesh
+tqdm
+transformers
+point-cloud-utils

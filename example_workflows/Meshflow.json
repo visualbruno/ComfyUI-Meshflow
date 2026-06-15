@@ -1,0 +1,399 @@
+{
+  "id": "3902af4d-b7b1-4ed2-9e31-10f0c3058173",
+  "revision": 0,
+  "last_node_id": 6,
+  "last_link_id": 5,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "MeshflowLoadMesh",
+      "pos": [
+        86.49999572753903,
+        312.0733129882813
+      ],
+      "size": [
+        462.79334564208995,
+        114.06669128417968
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "mesh",
+          "type": "MESHFLOWMESH",
+          "links": [
+            1
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "visualbruno/ComfyUI-Meshflow",
+        "ver": "unknown",
+        "Node name for S&R": "MeshflowLoadMesh"
+      },
+      "widgets_values": [
+        "C:\\Git\\ComfyUI\\output\\3D\\AnimeGirl_XViews_Hy20\\AnimeGirl_XViews_Hy20_TexturedMesh_00001_.glb",
+        true,
+        true
+      ]
+    },
+    {
+      "id": 3,
+      "type": "LoadImage",
+      "pos": [
+        95.71392730712887,
+        486.2533087158202
+      ],
+      "size": [
+        443.32548248291016,
+        471.3
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.24.0",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "AnimeGirl_1024_Delight.png",
+        "image"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "MeshflowMeshProcessor",
+      "pos": [
+        624.84150390625,
+        294.4600347900391
+      ],
+      "size": [
+        282.3169921875,
+        170
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pipeline",
+          "type": "MESHFLOWPIPELINE",
+          "link": 4
+        },
+        {
+          "name": "mesh",
+          "type": "MESHFLOWMESH",
+          "link": 1
+        },
+        {
+          "name": "image",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 2
+        }
+      ],
+      "outputs": [
+        {
+          "name": "trimesh",
+          "type": "TRIMESH",
+          "links": [
+            3
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "visualbruno/ComfyUI-Meshflow",
+        "ver": "unknown",
+        "Node name for S&R": "MeshflowMeshProcessor"
+      },
+      "widgets_values": [
+        28,
+        12345,
+        "fixed",
+        2.5
+      ]
+    },
+    {
+      "id": 4,
+      "type": "MeshflowExportMesh",
+      "pos": [
+        980.0398736572271,
+        140.10666854858405
+      ],
+      "size": [
+        270,
+        102
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "trimesh",
+          "type": "TRIMESH",
+          "link": 3
+        }
+      ],
+      "outputs": [
+        {
+          "name": "glb_path",
+          "type": "STRING",
+          "links": [
+            5
+          ]
+        },
+        {
+          "name": "relative_path",
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "aux_id": "visualbruno/ComfyUI-Meshflow",
+        "ver": "unknown",
+        "Node name for S&R": "MeshflowExportMesh"
+      },
+      "widgets_values": [
+        "Meshflow",
+        "glb"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "Preview3D",
+      "pos": [
+        964.2868261718752,
+        300.559965209961
+      ],
+      "size": [
+        589.5666174316407,
+        651.6400738525392
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "camera_info",
+          "shape": 7,
+          "type": "LOAD3D_CAMERA",
+          "link": null
+        },
+        {
+          "name": "bg_image",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "model_file",
+          "type": "STRING,FILE_3D_GLB,FILE_3D_GLTF,FILE_3D_FBX,FILE_3D_OBJ,FILE_3D_STL,FILE_3D_USDZ,FILE_3D",
+          "widget": {
+            "name": "model_file"
+          },
+          "link": 5
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.24.0",
+        "Node name for S&R": "Preview3D",
+        "Last Time Model File": "C:/Git/ComfyUI/output/Meshflow_00002_.glb",
+        "Resource Folder": "Git/ComfyUI/output",
+        "Scene Config": {
+          "showGrid": true,
+          "backgroundColor": "#282828",
+          "backgroundImage": "",
+          "backgroundRenderMode": "tiled",
+          "models": [
+            {
+              "position": {
+                "x": 0,
+                "y": 0,
+                "z": 0
+              },
+              "quaternion": {
+                "x": 0,
+                "y": 0,
+                "z": 0,
+                "w": 1
+              },
+              "scale": {
+                "x": 1,
+                "y": 1,
+                "z": 1
+              }
+            }
+          ]
+        },
+        "Camera Config": {
+          "cameraType": "perspective",
+          "fov": 35,
+          "state": {
+            "position": {
+              "x": -0.8822595882706961,
+              "y": 0.13202642324887304,
+              "z": 3.2327644187689324
+            },
+            "target": {
+              "x": -0.0078125,
+              "y": -0.001953125,
+              "z": 0.0048828125
+            },
+            "zoom": 1,
+            "cameraType": "perspective"
+          }
+        },
+        "Light Config": {
+          "intensity": 3,
+          "hdri": {
+            "enabled": false,
+            "hdriPath": "",
+            "showAsBackground": false,
+            "intensity": 1
+          }
+        },
+        "Model Config": {
+          "upDirection": "original",
+          "materialMode": "original",
+          "showSkeleton": false,
+          "gizmo": {
+            "enabled": false,
+            "mode": "translate",
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0
+            },
+            "scale": {
+              "x": 1,
+              "y": 1,
+              "z": 1
+            }
+          }
+        }
+      },
+      "widgets_values": [
+        "C:/Git/ComfyUI/output/Meshflow_00002_.glb",
+        ""
+      ]
+    },
+    {
+      "id": 5,
+      "type": "MeshflowLoadModel",
+      "pos": [
+        91.37330871582022,
+        144.37336196899426
+      ],
+      "size": [
+        470.03338256835946,
+        90.94665222167964
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "pipeline",
+          "type": "MESHFLOWPIPELINE",
+          "links": [
+            4
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "visualbruno/ComfyUI-Meshflow",
+        "ver": "unknown",
+        "Node name for S&R": "MeshflowLoadModel"
+      },
+      "widgets_values": [
+        8192,
+        "dinov3_vitl16_pretrain_lvd1689m-8aa4cbdd.pth"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      1,
+      0,
+      2,
+      1,
+      "MESHFLOWMESH"
+    ],
+    [
+      2,
+      3,
+      0,
+      2,
+      2,
+      "IMAGE"
+    ],
+    [
+      3,
+      2,
+      0,
+      4,
+      0,
+      "TRIMESH"
+    ],
+    [
+      4,
+      5,
+      0,
+      2,
+      0,
+      "MESHFLOWPIPELINE"
+    ],
+    [
+      5,
+      4,
+      0,
+      6,
+      2,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8264462809917354,
+      "offset": [
+        51.059972595214866,
+        33.906073822021575
+      ]
+    },
+    "frontendVersion": "1.45.15",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
