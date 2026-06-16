@@ -133,7 +133,10 @@ class MeshflowLoadMesh:
     CATEGORY = "MeshflowWrapper"
     OUTPUT_NODE = True
 
-    def process(self, mesh_path, normalize, preprocess):    
+    def process(self, mesh_path, normalize, preprocess):  
+        if not os.path.exists(mesh_path):
+            mesh_path = os.path.join(comfy_path, 'input', mesh_path)
+
         mesh = Mesh.load_mesh(filename = mesh_path, normalize = normalize, preprocess = preprocess)        
         return (mesh,)
         
